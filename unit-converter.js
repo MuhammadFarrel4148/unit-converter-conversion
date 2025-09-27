@@ -1,4 +1,5 @@
 const lengthConversionHandler = require("./api/length-api/lengthHandler");
+const temperatureConversionHandler = require("./api/temperature-api/temperatureHandler");
 const weightConversionHandler = require("./api/weight-api/weightHandler");
 
 const [ , , command, ...argv] = process.argv;
@@ -20,6 +21,7 @@ const checkCommand = (command, argv) => {
             weightConversionHandler(argv[0], argv[1], argv[2]);
             break;
         case 'temperature':
+            temperatureConversionHandler(argv[0], argv[1], argv[2]);
             break;
         default:
             break;

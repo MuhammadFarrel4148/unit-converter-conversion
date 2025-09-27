@@ -1,11 +1,16 @@
-const weightConversionService = require("../../service/weight/weightService");
+const weightConversionService = require("../../service/weight-service/weightService");
 
 const weightConversionHandler = (number, convertFrom, convertTo) => {
-    const transformConvertNumber = parseInt(number);
+    try {
+        const transformConvertNumber = parseInt(number);
 
-    const result = weightConversionService(transformConvertNumber, convertFrom, convertTo);
+        const result = weightConversionService(transformConvertNumber, convertFrom, convertTo);
 
-    console.log(`${transformConvertNumber} ${convertFrom} = ${result} ${convertTo}`); 
+        console.log(`${transformConvertNumber} ${convertFrom} = ${result} ${convertTo}`); 
+        
+    } catch(error) {
+        console.error(error);
+    };
 };
 
-module.exports = weightConversionHandler
+module.exports = weightConversionHandler;
